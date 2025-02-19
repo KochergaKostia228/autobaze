@@ -1,7 +1,8 @@
 package com.example.autobaza.controller;
 
 import com.example.autobaza.DTO.CarDTO;
-import com.example.autobaza.service.carservice.CarServiceImpl;
+import com.example.autobaza.DTO.RequestDTO;
+import com.example.autobaza.service.requestservice.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,15 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.security.Principal;
 import java.util.Collection;
 
-@Controller()
-public class CarController {
-
+@Controller
+public class RequestController {
     @Autowired
-    CarServiceImpl carService;
+    RequestService requestService;
 
-    @GetMapping(value = "/cars/get")
+    @GetMapping(value = "/requests/get")
     public String getCars(Model model, Principal principal){
-        model.addAttribute("cars", carService.findAll());
+        model.addAttribute("requests", requestService.findAll());
 
         User loginedUser = (User) ((Authentication) principal).getPrincipal();
 
@@ -35,19 +35,19 @@ public class CarController {
 
         model.addAttribute("roles", roles.toString());
 
-        return "cars";
+        return "requests";
     }
 
-    @PostMapping(value = "/car/create")
-    public String createEvent(@ModelAttribute CarDTO carDTO)
+    @PostMapping(value = "/request/create")
+    public String createEvent(@ModelAttribute RequestDTO requestDTO)
     {
-        carService.createCar(carDTO);
-        return "redirect:/cars/get";
+        requestService.createRequest(requestDTO);
+        return "redirect:/requests/get";
     }
 
-    @GetMapping(value = "/createCarPage")
+    @GetMapping(value = "/createRequestPage")
     public String createEventPage(Model model, Principal principal) {
-        model.addAttribute("carDTO", new CarDTO());
+        model.addAttribute("requestDTO", new RequestDTO());
 
         User loginedUser = (User) ((Authentication) principal).getPrincipal();
 
@@ -59,6 +59,6 @@ public class CarController {
 
         model.addAttribute("roles", roles.toString());
 
-        return "createCarPage";
+        return "createRequestPage";
     }
 }

@@ -22,6 +22,9 @@ public class Driver {
     @Column(nullable = false, length = 100)
     private String name;
 
+    @Column(nullable = false, length = 100)
+    private String email;
+
     @Column(nullable = false)
     private int experience;
 
@@ -58,5 +61,13 @@ public class Driver {
 
     public void setEarnings(double earnings) {
         this.earnings = earnings;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

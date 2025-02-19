@@ -2,6 +2,7 @@
 CREATE TABLE IF NOT EXISTS Drivers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
     experience INT NOT NULL,
     earnings money DEFAULT 0
 );

@@ -12,10 +12,18 @@
 <body>
     <th:block th:insert="~{/layout/navbar}"></th:block>
 
-    <form name="login" style="width: 600px;height: 600px" th:object="${carDTO}" th:action="@{/car/create}" method="POST">
+    <form name="login" style="width: 600px;height: 600px" th:object="${requestDTO}" th:action="@{/request/create}" method="POST">
         <div class="mb-3">
-            <label class="form-label">Capacity</label>
-            <input type="text" class="form-control" th:field="*{capacity}" id="InputUsername" name="username">
+            <label class="form-label">Destination</label>
+            <input type="text" class="form-control" th:field="*{destination}" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cargo Amount</label>
+            <input type="text" class="form-control" th:field="*{cargoAmount}" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cargo Type</label>
+            <input type="text" class="form-control" th:field="*{cargoType}" />
         </div>
 
         <div class="d-flex">

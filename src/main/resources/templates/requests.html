@@ -14,23 +14,17 @@
 
 <table border = "1">
 
-    <a href="/createCarPage">Создать автомобиль</a>
+    <a href="/createRequestPage">Создать заявку на рейс</a>
 
     <tr>
-        <th>Ёмкость (Ф)</th>
+        <th>Пункт назначения</th>
         <th>Грузоподьёмность (кг)</th>
-        <th>Состояния автомобиля</th>
+        <th>Тип груза</th>
     </tr>
-    <tr th:each = "car : ${cars}">
-        <td th:utext="${car.capacity}">...</td>
-        <td th:utext="${car.currentLoad}">...</td>
-
-        <div th:if="${car.broken == true}">
-            <td>Поломан</td>
-        </div>
-        <div th:if="${car.broken == false}">
-            <td>Целый</td>
-        </div>
+    <tr th:each = "request : ${requests}">
+        <td th:utext="${request.destination}">...</td>
+        <td th:utext="${request.cargoAmount}">...</td>
+        <td th:utext="${request.cargoType}">...</td>
     </tr>
 </table>
 

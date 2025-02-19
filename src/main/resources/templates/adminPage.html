@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:utext="${title}"></title>
+</head>
+<body>
+<div th:fragment="content" th:with="roles=${roles}">
+    <!-- Вставка фрагмента -->
+    <div th:replace="/fragments/menu :: fragmentContent"></div>
+</div>
+
+<div th:fragment="content" th:with="roles=${roles}">
+    <!-- Вставка фрагмента -->
+    <div th:replace="/fragments/menu1 :: fragmentContent1"></div>
+</div>
+
+<h2>Admin Page</h2>
+<h3>Welcome :
+    <span th:utext="${#request.userPrincipal.name}"></span>
+</h3>
+<b>This is protected page for admins!</b>
+
+<br/><br/>
+
+<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+
+</body>
+
+</html>

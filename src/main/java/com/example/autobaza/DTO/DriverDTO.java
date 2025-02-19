@@ -5,6 +5,8 @@ import javax.persistence.Column;
 public class DriverDTO {
     private String name;
 
+    private String email;
+
     private int experience;
 
     public String getName() {
@@ -21,5 +23,13 @@ public class DriverDTO {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
