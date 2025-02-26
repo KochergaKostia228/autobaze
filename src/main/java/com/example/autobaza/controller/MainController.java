@@ -74,11 +74,6 @@ public class MainController {
         return "loginPage";
     }
 
-    @GetMapping(value = "/main")
-    public String mainPage(Model model) {
-        return "main";
-    }
-
     @GetMapping(value = "/register")
     public String registerPage(Model model) {
         return "registerPage";
@@ -122,11 +117,11 @@ public class MainController {
 
         driverService.createDriver(driverDTO);
 
-        Role userRole = roleService.findByRoleName("USER");
+        Role userRole = roleService.findByRoleName("ROLE_DRIVER");
 
         if (userRole == null) {
             userRole = new Role();
-            userRole.setRoleName("USER");
+            userRole.setRoleName("ROLE_DRIVER");
             roleService.save(userRole);
         }
 

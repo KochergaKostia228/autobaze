@@ -9,4 +9,5 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface RepairRequestRepository extends JpaRepository<RepairRequest, Long> {
+    RepairRequest findRepairRequestById(Long id);
 }

@@ -9,4 +9,11 @@ public interface CarService {
     void createCar(CarDTO carDTO);
 
     List<Car> findAll();
+
+    Car findById(Long id);
+
+    void updateCarCurrentLoad(long id, int currentLoad);
+
+    void updateCarBroken(long id, boolean broken);
+
 }

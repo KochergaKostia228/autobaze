@@ -12,15 +12,21 @@
 <body>
 <th:block th:insert="~{/layout/navbar}"></th:block>
 
-<table border = "1">
+<a href="/createCarPage">Создать автомобиль</a>
 
-    <a href="/createCarPage">Создать автомобиль</a>
+<table border = "1" class="table">
+
+    <thead>
 
     <tr>
         <th>Ёмкость (Ф)</th>
         <th>Грузоподьёмность (кг)</th>
         <th>Состояния автомобиля</th>
     </tr>
+    </thead>
+
+    <tbody>
+
     <tr th:each = "car : ${cars}">
         <td th:utext="${car.capacity}">...</td>
         <td th:utext="${car.currentLoad}">...</td>
@@ -32,6 +38,8 @@
             <td>Целый</td>
         </div>
     </tr>
+    </tbody>
+
 </table>
 
 </body>

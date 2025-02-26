@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @NoArgsConstructor
@@ -29,7 +30,7 @@ public class Driver {
     private int experience;
 
     @Column(nullable = false)
-    private double earnings = 0;
+    private BigDecimal earnings = BigDecimal.valueOf(0);
 
     public Long getId() {
         return id;
@@ -55,11 +56,11 @@ public class Driver {
         this.experience = experience;
     }
 
-    public double getEarnings() {
+    public BigDecimal getEarnings() {
         return earnings;
     }
 
-    public void setEarnings(double earnings) {
+    public void setEarnings(BigDecimal earnings) {
         this.earnings = earnings;
     }
 

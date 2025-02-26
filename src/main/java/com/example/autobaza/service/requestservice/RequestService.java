@@ -11,4 +11,8 @@ public interface RequestService {
     void createRequest(RequestDTO requestDTO);
 
     List<Request> findAll();
+
+    Request findById(Long id);
+
+    void deleteById(Long id);
 }

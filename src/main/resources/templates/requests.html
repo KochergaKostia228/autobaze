@@ -12,20 +12,28 @@
 <body>
 <th:block th:insert="~{/layout/navbar}"></th:block>
 
-<table border = "1">
+<a href="/createRequestPage">Создать заявку на рейс</a>
 
-    <a href="/createRequestPage">Создать заявку на рейс</a>
+<table border = "1" class="table">
+
+    <thead>
 
     <tr>
         <th>Пункт назначения</th>
         <th>Грузоподьёмность (кг)</th>
         <th>Тип груза</th>
     </tr>
+    </thead>
+
+    <tbody>
+
     <tr th:each = "request : ${requests}">
         <td th:utext="${request.destination}">...</td>
         <td th:utext="${request.cargoAmount}">...</td>
         <td th:utext="${request.cargoType}">...</td>
     </tr>
+    </tbody>
+
 </table>
 
 </body>

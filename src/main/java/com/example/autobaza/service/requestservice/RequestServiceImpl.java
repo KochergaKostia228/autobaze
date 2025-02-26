@@ -28,4 +28,14 @@ public class RequestServiceImpl implements RequestService {
     public List<Request> findAll() {
         return requestRepository.findAll();
     }
+
+    @Override
+    public Request findById(Long id) {
+        return requestRepository.findRequestById(id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        requestRepository.deleteById(id);
+    }
 }

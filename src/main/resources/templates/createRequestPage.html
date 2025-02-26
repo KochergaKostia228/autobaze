@@ -12,7 +12,7 @@
 <body>
     <th:block th:insert="~{/layout/navbar}"></th:block>
 
-    <form name="login" style="width: 600px;height: 600px" th:object="${requestDTO}" th:action="@{/request/create}" method="POST">
+    <form style="width: 600px;height: 600px" th:object="${requestDTO}" th:action="@{/request/create}" method="POST">
         <div class="mb-3">
             <label class="form-label">Destination</label>
             <input type="text" class="form-control" th:field="*{destination}" />

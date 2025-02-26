@@ -39,14 +39,14 @@ public class CarController {
     }
 
     @PostMapping(value = "/car/create")
-    public String createEvent(@ModelAttribute CarDTO carDTO)
+    public String createCar(@ModelAttribute CarDTO carDTO)
     {
         carService.createCar(carDTO);
         return "redirect:/cars/get";
     }
 
     @GetMapping(value = "/createCarPage")
-    public String createEventPage(Model model, Principal principal) {
+    public String createCarPage(Model model, Principal principal) {
         model.addAttribute("carDTO", new CarDTO());
 
         User loginedUser = (User) ((Authentication) principal).getPrincipal();

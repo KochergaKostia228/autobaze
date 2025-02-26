@@ -27,4 +27,20 @@ public class CarServiceImpl implements CarService{
     public List<Car> findAll() {
         return carRepository.findAll();
     }
+
+    @Override
+    public Car findById(Long id) {
+        return carRepository.findCarById(id);
+    }
+
+    @Override
+    public void updateCarCurrentLoad(long id, int currentLoad) {
+        carRepository.updateCarCurrentLoad(id, currentLoad);
+    }
+
+    @Override
+    public void updateCarBroken(long id, boolean broken) {
+        carRepository.updateCarBroken(id, broken);
+
+    }
 }

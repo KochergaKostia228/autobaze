@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS Drivers (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     experience INT NOT NULL,
-    earnings money DEFAULT 0
+    earnings VARCHAR(50) DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS Cars (
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Trips (
     car_id INTEGER,
     request_id INTEGER,
     status VARCHAR(50) NOT NULL,
-    earnings money DEFAULT 0,
+    earnings VARCHAR(50) DEFAULT 0,
     trip_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (driver_id) REFERENCES Drivers(id) ON DELETE CASCADE,

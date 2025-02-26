@@ -12,18 +12,26 @@
 <body>
 <th:block th:insert="~{/layout/navbar}"></th:block>
 
-<table border = "1">
+<table border = "1" class="table">
 
-    <tr>
-        <th>Имя</th>
-        <th>Емаил </th>
-        <th>Опыт работы (год)</th>
-    </tr>
-    <tr th:each = "driver : ${drivers}">
-        <td th:utext="${driver.name}">...</td>
-        <td th:utext="${driver.email}">...</td>
-        <td th:utext="${driver.experience}">...</td>
-    </tr>
+    <thead>
+
+        <tr>
+            <th>Имя</th>
+            <th>Емаил </th>
+            <th>Опыт работы (год)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr th:each = "driver : ${drivers}">
+            <td th:utext="${driver.name}">...</td>
+            <td th:utext="${driver.email}">...</td>
+            <td th:utext="${driver.experience}">...</td>
+        </tr>
+    </tbody>
+
 </table>
 
 </body>

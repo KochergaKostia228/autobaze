@@ -55,7 +55,6 @@ public class WebSecurityConfig {
 
         List<Endpoints> allUserEndpoints = Endpoints.getEndpointForAllUsers();
         List<Endpoints> adminEndpoints = Endpoints.getEndpointsForAdmin();
-        List<Endpoints> driverEndpoint = Endpoints.getEndpointsForDriver();
 
         http
                 .csrf(AbstractHttpConfigurer::disable)
@@ -64,8 +63,6 @@ public class WebSecurityConfig {
                         .permitAll()
                         .antMatchers(adminEndpoints.stream().map(Endpoints::getEndpoint).toArray(String[]::new))
                         .hasAnyRole("ADMIN")
-                        .antMatchers(driverEndpoint.stream().map(Endpoints::getEndpoint).toArray(String[]::new))
-                        .hasAnyRole("ROLE_DRIVER")
                         .anyRequest().authenticated()
                 );
 

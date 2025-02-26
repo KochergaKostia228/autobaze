@@ -18,6 +18,12 @@
                 <li th:if="${roles.contains('ROLE_ADMIN')}" class="nav-item">
                     <a class="nav-link active text-white" th:href="@{/requests/get}">Requests</a>
                 </li>
+                <li th:if="${roles.contains('ROLE_ADMIN') || roles.contains('ROLE_DRIVER')}" class="nav-item">
+                    <a class="nav-link active text-white" th:href="@{/trips/get}">Trips</a>
+                </li>
+                <li th:if="${roles.contains('ROLE_ADMIN')}" class="nav-item">
+                    <a class="nav-link active text-white" th:href="@{/repairRequests/get}">Repair Requests</a>
+                </li>
             </ul>
         </div>
     </div>

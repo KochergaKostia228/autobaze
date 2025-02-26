@@ -22,7 +22,7 @@ public class RequestController {
     RequestService requestService;
 
     @GetMapping(value = "/requests/get")
-    public String getCars(Model model, Principal principal){
+    public String getRequests(Model model, Principal principal){
         model.addAttribute("requests", requestService.findAll());
 
         User loginedUser = (User) ((Authentication) principal).getPrincipal();
@@ -39,14 +39,14 @@ public class RequestController {
     }
 
     @PostMapping(value = "/request/create")
-    public String createEvent(@ModelAttribute RequestDTO requestDTO)
+    public String createRequest(@ModelAttribute RequestDTO requestDTO)
     {
         requestService.createRequest(requestDTO);
         return "redirect:/requests/get";
     }
 
     @GetMapping(value = "/createRequestPage")
-    public String createEventPage(Model model, Principal principal) {
+    public String createRequestPage(Model model, Principal principal) {
         model.addAttribute("requestDTO", new RequestDTO());
 
         User loginedUser = (User) ((Authentication) principal).getPrincipal();

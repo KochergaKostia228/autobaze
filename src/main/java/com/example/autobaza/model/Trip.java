@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -33,13 +35,14 @@ public class Trip {
     private Request request;
 
     @Column(nullable = false)
-    private String status;
+    private String status = "Не розпочатий";
 
     @Column(nullable = false)
-    private double earnings = 0;
+    private BigDecimal earnings = BigDecimal.valueOf(0);
 
     @Column(nullable = false)
-    private LocalDateTime tripDate = LocalDateTime.now();
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime tripDate;
 
     // Getters and Setters
     public Long getId() {
@@ -82,11 +85,11 @@ public class Trip {
         this.status = status;
     }
 
-    public double getEarnings() {
+    public BigDecimal getEarnings() {
         return earnings;
     }
 
-    public void setEarnings(double earnings) {
+    public void setEarnings(BigDecimal earnings) {
         this.earnings = earnings;
     }
 
